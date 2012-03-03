@@ -1,0 +1,33 @@
+<div id="menu_container">
+  <div id="menu">
+    <ul class="main">
+      <li><%= link_to "Home", root_path %></li>
+      <li><li><a href="#">Longer Test Link</a></li>
+      <li><a href="#">Test Link</a></li>
+      <li><a href="#">Test Link</a></li>
+    </ul>
+  </div>
+</div>
+<script>  
+    (function($){  
+  
+        //cache nav  
+        var nav = $("#menu");  
+  
+        //add indicators and hovers to submenu parents  
+        nav.find("li").each(function() {  
+            if ($(this).find("ul").length > 0) {  
+  
+                //show subnav on hover  
+                $(this).mouseenter(function() {  
+                    $(this).find("ul").stop(true, true).slideDown(150);  
+                });  
+  
+                //hide submenus on exit  
+                $(this).mouseleave(function() {  
+                    $(this).find("ul").stop(true, true).slideUp(150);  
+                });  
+            }  
+        });  
+    })(jQuery);  
+</script>  
