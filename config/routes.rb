@@ -1,5 +1,15 @@
 Dp::Application.routes.draw do
+  #resources :users
+  get "users/new"
+
+  #get "session/new"
+
+  #get "session/create"
+
   get "pages/home"
+  #match "/login" => "session#new"
+  #match "/logout" => "session#destroy"
+  #match "/signup" => "users#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
