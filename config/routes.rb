@@ -1,6 +1,6 @@
 Dp::Application.routes.draw do
   #resources :users
-  #get "users/new"
+  get "users/new"
 
   #get "session/new"
 
