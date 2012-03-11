@@ -14,5 +14,8 @@
 /log/*.log
 /tmp
 
+# Ignore bundle info
+activesupport
+
 # Ignore .rvmrc
 .rvmrc
