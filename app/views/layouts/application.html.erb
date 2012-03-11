@@ -12,15 +12,23 @@
 <body>
 <div id="main">
   <%= render 'layouts/header' %>
-  <%= render 'layouts/menu_home' %>
+  <% if signed_in? %>
+    <%= render 'layouts/menu_user' %>
+  <% else %>
+    <%= render 'layouts/menu_home' %>
+  <% end %>
   <div id="content_container">
   <div id="content_padding">
   <div id="content">
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
   </div><!-- End Div id="content" -->
   </div><!-- End Div id="content_padding" -->
   </div><!-- End Div id="content_container" -->
   <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
 </div><!-- End Div id="main" -->
 </body>
 </html>
