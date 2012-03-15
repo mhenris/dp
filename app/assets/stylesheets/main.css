@@ -10,7 +10,7 @@ body {
 }
 
 #content_padding, #menu, #header {
-	width: 75%;
+	width: 85%;
 	margin: 0px auto;
 }
 
@@ -63,6 +63,7 @@ body {
 	color:white;
 	background-color: #333;
 	border-radius: 5px; 
+	height: 40px;
 }
 
 #menu ul.sub { background-color: #333; position: absolute; display:none; }  
