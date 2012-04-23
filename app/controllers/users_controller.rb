@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = current_user
+    @title = "Edit Profile"
+  end
+
   def new
     @user = User.new
     @title = "Sign Up"
@@ -20,4 +25,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def follow
+    f = Follow.new(:follower => current_user, :following_id => params[:id])
+    f.save
+    redirect_to user_path(params[:id])
+  end
+    
 end

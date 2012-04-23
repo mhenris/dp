@@ -1,8 +1,14 @@
 <div id="menu_container">
   <nav id="menu">
     <ul class="main">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Log Out", logout_path %></li>
+      <% if current_page?(news_path) %>
+        <li><%= link_to "News Feed", news_path %></li>
+      <% else %>
+        <li><%= link_to "News Feed", news_path %></li>
+      <% end %>
+      <li><%= link_to "My Profile", user_path(@current_user) %></li>
+      <li><%= link_to "Find Users", search_users_path %></li>
+      <!--<li><%= link_to "Men's Health", root_path %></li>-->
     </ul>
   </nav>
 </div>

@@ -5,12 +5,19 @@ body {
 	font-size: .9em;
 }
 
+a, a:visited {
+  color: #6699dd;
+  text-decoration: none;
+}
+
+a:hover { color: orange; }
+
 #main { 
 	margin: 0px 0px;
 }
 
 #content_padding, #menu, #header {
-	width: 85%;
+	width: 900px;
 	margin: 0px auto;
 }
 
@@ -24,12 +31,12 @@ body {
 #header {
 	font-size: 64px;
 	font-weight: bold;
-	padding: 20px 0px;
+	padding: 10px 0px;
 }
 
 #menu_container {
 	margin: 0px;
-	height: 40px;
+	height: 30px;
 	background-color: orange;
 	background: -webkit-linear-gradient(top, orange 0%, #fc0 100%);
 	background: -moz-linear-gradient(top, orange 0%, #fc0 100%);
@@ -44,7 +51,8 @@ body {
 	float: left;
 	margin: 5px 0px;
 	font-weight: bold; 
-	font-size: 1.1em;
+	font-size: 1em;
+	line-height:15px;
 }
 
 #menu li:first-child { border: none; }
@@ -54,16 +62,21 @@ body {
 	text-decoration: none;
 	xxborder-right: 1px solid gray;
 	display:block;
-	height: 30px;
-	line-height:30px;
-	padding: 0px 10px;
+	height: 18px;
+	padding: 2px 10px;
 }
 
 #menu a:hover {
-	color:white;
-	background-color: #333;
+	color:black;
+	background-color: white;
 	border-radius: 5px; 
-	height: 40px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	height: 21px;
+	border: 1px solid #333;
+	border-bottom: none;
 }
 
 #menu ul.sub { background-color: #333; position: absolute; display:none; }  
@@ -85,12 +98,15 @@ body {
 }
 
 h1, h2 { 
-	margin: 0px 0px 20px;
-	border-bottom: 1px solid black; 
-	padding-bottom: 10px;
+	margin: 0px 0px 10px;
 }
 
 h1 { font-size: 28pt; }
+
+.clear {
+  height: 0px;
+  clear: both;
+}
 
 #footer_container {
 	margin: 0px;
@@ -106,7 +122,7 @@ h1 { font-size: 28pt; }
 }
 
 input {
-	font-size: 18pt;
+	font-size: 12pt;
 }
 
 .success_message {
@@ -115,3 +131,45 @@ input {
 	background-color: #149322;
 	color: white;
 }
+
+#main_content {
+  float: left;
+  width: 500px;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
+
+#left_menu {
+  float:left;
+  width: 180px;
+  margin: 0px 20px 0px 0px;
+}
+
+#left_menu .picture {
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+#left_menu .left_menu_link {
+  display: block;
+  margin-left: 5px;
+  padding: 5px 0px;
+}
+
+.post {
+  padding: 10px 0px;
+  border-top: 1px solid #ddd;
+}
+
+.post_image {
+  float: left;
+  width: 50px;
+}
+
+.post_body {
+  float:left;
+  width: 500px;
+}
+
+.field { margin: 0px 0px 20px 0px; }

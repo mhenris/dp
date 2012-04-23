@@ -1,7 +1,27 @@
 Dp::Application.routes.draw do
-  resources :users
-  resources :sessions, :only => [:new, :create, :destroy]
 
+  get "image/new"
+
+  get "image/create"
+
+  resources :users do
+    member do
+      get 'follow'
+    end
+    collection do
+      get 'search'
+      post 'search'
+    end
+    resources :messages, :only => [:create, :destroy, :show, :new]
+    resources :images
+  end
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :posts, :only => [:create, :destroy, :update]
+  resources :comments, :only => [:create, :destroy, :update]
+
+  match "/inbox" => "messages#index"
+  match "/outbox" => "messages#sent"
+  match "/news" => "pages#news"
   match "/signup" => "users#new"
   match "/login" => "sessions#new"
   match "/logout" => "sessions#destroy"

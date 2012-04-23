@@ -1,0 +1,13 @@
+<div class="picture">
+<table>
+<tr>
+<td><%= image_tag current_user.image_url, :width => 40 %></td>
+<td>&nbsp;<%= link_to current_user.name, user_path(current_user) %></td>
+</tr>
+</table>
+</div>
+<%= link_to "Personal Messages", inbox_path, :class => "left_menu_link" %>
+<%= link_to "Visitors", inbox_path, :class => "left_menu_link" %>
+<%= link_to "Photos (" + current_user.images.size.to_s + ")", user_images_path(current_user), :class => "left_menu_link" %>
+<%= link_to "Followers ("+current_user.followers.size.to_s+")", inbox_path, :class => "left_menu_link" %>
+<%= link_to "Following ("+current_user.following.size.to_s+")", inbox_path, :class => "left_menu_link" %>

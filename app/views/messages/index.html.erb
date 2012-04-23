@@ -1,0 +1,10 @@
+<h2>Inbox | <%= link_to "Outbox", outbox_path %></h2>
+<table cellspacing="5">
+  <% @messages.each do |m| %>
+    <tr>
+      <td width="40"><%= image_tag m.sender.image_url, :width => 30 %></td>
+      <td width="150"><%= link_to m.sender.name, user_message_path(current_user,m) %></td>
+      <td width="150"><%= m.created_at.strftime("%A %B %d, %Y") %></td>
+    </tr>
+  <% end %>
+</table>
