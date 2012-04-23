@@ -1,0 +1,32 @@
+<%= form_for :post, :url => posts_path, :html => { :method => "POST" } do |f| %>
+  <%= render :partial => 'shared/post_form', :locals => { :f => f } %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <table>
+      <tr>
+        <td width="50" valign="top"><%= image_tag post.user.image_url, :width => 50 %></td>
+        <td width="500">
+          <table>
+            <tr><td colspan="2"><%= link_to post.user.name, user_path(post.user) %></td></tr>
+            <tr><td colspan="2"><%= post.body %></td></tr>
+            <% post.comments.each do |comment| %>
+              <tr><td width="20">&nbsp;</td><td><%= comment.comment %></td></tr>
+            <% end %>
+            <tr>
+              <td width="20">&nbsp;</td>
+              <td>
+                <%= form_for :comment, :url => comments_path, :html => { :method => "POST" } do |c| %>
+                  <%= c.text_field :comment %>
+                  <%= c.hidden_field :post_id, :value => post.id %>
+                  <%= c.hidden_field :user_id, :value => current_user.id %>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>

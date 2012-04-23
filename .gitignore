@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore bundle info
+activesupport
+
+# Ignore .rvmrc
+.rvmrc

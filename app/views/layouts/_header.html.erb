@@ -1,5 +1,10 @@
 <div id="header_container">
   <div id="header">
-    <span style="color:#6699cc">daddy</span><span style="color:orange">heaven</span>
+    <span style="color:#6699cc">d</span><span style="color:orange">social</span>
+    <% if signed_in? %>
+      <div style="float:right;font-size:12px;color:white">Account Settings | <%= link_to "Log Out", logout_path %></div>
+    <% else %>
+      <div style="float:right;font-size:12px;color:white">Sign Up | <%= link_to "Log In", login_path %></div>
+    <% end %>
   </div>
 </div>

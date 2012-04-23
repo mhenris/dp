@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  has_many :posts
+  has_many :comments
+  has_many :images
+  has_many :followers, :class_name => 'Follow', :foreign_key => 'following_id'
+  has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id'
+  has_many :messages_sent, :class_name => 'Message', :foreign_key => 'sender_id'
+  has_many :messages_received, :class_name => 'Message', :foreign_key => 'recipient_id'
+
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
@@ -29,6 +37,10 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+
+  def image_url
+    Image.find(self.image_id).image.url
   end
 
   private

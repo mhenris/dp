@@ -1,1 +1,3 @@
-<%= @user.name %>, <%= @user.email %>
+<h2><%= image_tag @user.image_url %> <%= @user.name %></h2>
+<%= link_to "Send a message", new_user_message_path(@user) %> |
+<%= link_to "Follow " + @user.name, follow_user_path(@user) %>
